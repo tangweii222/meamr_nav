@@ -68,6 +68,7 @@ bt_navigator:
     # plugin_lib_names is used to add custom BT plugins to the executor (vector of strings).
     # Built-in plugins are added automatically
     # plugin_lib_names: []
+    default_nav_to_pose_bt_xml: $(find-pkg-share meamr_nav)/behavior_trees/navigate_to_pose_w_replanning_and_recovery.xml
 
     error_code_names:
       - compute_path_error_code
