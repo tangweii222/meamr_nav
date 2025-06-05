@@ -110,10 +110,10 @@ bt_navigator:
     - nav2_controller_selector_bt_node
     - nav2_goal_checker_selector_bt_node
     #　< custom bt node >
-    - interrupt_trigger_bt_node
-    - interrupt_goal_updater_bt_node
+    # - interrupt_trigger_bt_node
+    # - interrupt_goal_updater_bt_node
     # < custom bt node >
-    - nav2_goal_updated_controller_bt_node
+    # - nav2_goal_updated_controller_bt_node
 
 bt_navigator_rclcpp_node:
   ros__parameters:
@@ -243,7 +243,7 @@ local_costmap:
       resolution: 0.05
       robot_radius: 0.1
       plugins: ["gradient_layer","obstacle_layer", "voxel_layer",  "inflation_layer"]
-      filters: ["keepout_filter", "binary_filter", "zone_filter"]
+      # filters: ["keepout_filter", "binary_filter", "zone_filter"]
       # 1
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
@@ -289,23 +289,23 @@ local_costmap:
         plugin: "nav2_gradient_costmap_plugin::GradientLayer"
         enabled: False
       # FILTER
-      binary_filter:
-        plugin: "nav2_costmap_2d::BinaryFilter"
-        enabled: False
-        filter_info_topic: "/binary_filter_info"
-        default_state: false
-        binary_state_topic: "/binary_state"
-        flip_threshold: 50.0
-      zone_filter:
-        plugin: "nav2_costmap_2d::ZoneFilter"
-        enabled: True
-        filter_info_topic: "/zone_filter_info"
-        zone_state_topic: "/zone_state"
-        default_state: "M2"
-      keepout_filter:
-        plugin: "nav2_costmap_2d::KeepoutFilter"
-        enabled: True
-        filter_info_topic: "/keepout_filter_info"
+      # binary_filter:
+      #   plugin: "nav2_costmap_2d::BinaryFilter"
+      #   enabled: False
+      #   filter_info_topic: "/binary_filter_info"
+      #   default_state: false
+      #   binary_state_topic: "/binary_state"
+      #   flip_threshold: 50.0
+      # zone_filter:
+      #   plugin: "nav2_costmap_2d::ZoneFilter"
+      #   enabled: True
+      #   filter_info_topic: "/zone_filter_info"
+      #   zone_state_topic: "/zone_state"
+      #   default_state: "M2"
+      # keepout_filter:
+      #   plugin: "nav2_costmap_2d::KeepoutFilter"
+      #   enabled: True
+      #   filter_info_topic: "/keepout_filter_info"
       always_send_full_costmap: True
   local_costmap_client:
     ros__parameters:
@@ -326,7 +326,7 @@ global_costmap:
       resolution: 0.05
       track_unknown_space: true
       plugins: ["static_layer", "obstacle_layer", "voxel_layer", "inflation_layer"]
-      filters: ["keepout_filter", "binary_filter", "zone_filter"]
+      # filters: ["keepout_filter", "binary_filter", "zone_filter"]
       obstacle_layer:
         plugin: "nav2_costmap_2d::ObstacleLayer"
         enabled: True
@@ -369,23 +369,23 @@ global_costmap:
         cost_scaling_factor: 3.0
         inflation_radius: 0.55
       # FILTER
-      binary_filter:
-        plugin: "nav2_costmap_2d::BinaryFilter"
-        enabled: False
-        filter_info_topic: "/binary_filter_info"
-        default_state: false
-        binary_state_topic: "/binary_state"
-        flip_threshold: 50.0
-      zone_filter:
-        plugin: "nav2_costmap_2d::ZoneFilter"
-        enabled: True
-        filter_info_topic: "/zone_filter_info"
-        zone_state_topic: "/zone_state"
-        default_state: "M2"
-      keepout_filter:
-        plugin: "nav2_costmap_2d::KeepoutFilter"
-        enabled: True
-        filter_info_topic: "/keepout_filter_info"
+      # binary_filter:
+      #   plugin: "nav2_costmap_2d::BinaryFilter"
+      #   enabled: False
+      #   filter_info_topic: "/binary_filter_info"
+      #   default_state: false
+      #   binary_state_topic: "/binary_state"
+      #   flip_threshold: 50.0
+      # zone_filter:
+      #   plugin: "nav2_costmap_2d::ZoneFilter"
+      #   enabled: True
+      #   filter_info_topic: "/zone_filter_info"
+      #   zone_state_topic: "/zone_state"
+      #   default_state: "M2"
+      # keepout_filter:
+      #   plugin: "nav2_costmap_2d::KeepoutFilter"
+      #   enabled: True
+      #   filter_info_topic: "/keepout_filter_info"
       always_send_full_costmap: True
 
   global_costmap_client:
